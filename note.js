@@ -19,7 +19,7 @@ const addNote = function (title, body) {
     });
 
     saveNotes(notes);
-    console.log(chalk.green.inverse("New Note added");
+    console.log(chalk.green.inverse("New Note added"));
   } else {
     console.log(chalk.red.inverse("Note Title already exist"));
   }
@@ -57,8 +57,17 @@ const removeNote = function (title) {
   }
 };
 
+const listNotes = () => {
+  const notes = loadNotes();
+  console.log(chalk.inverse("Your notes"));
+  notes.forEach((note) => {
+    console.log(note.title);
+  });
+};
+
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
+  listNotes: listNotes,
 };
